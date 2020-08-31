@@ -1,7 +1,7 @@
 ![header](https://raw.githubusercontent.com/remigermain/readme-assets/master/element-in-view/header.jpg)
 element-in-view is a js library to see if an element is visible on the user's screen, it is compatible for elements with a scroll bar (cs overflow).
 
-## [Demo](https://jsfiddle.net/rgermain/owujbs5y/22/)
+## [Demo](https://jsfiddle.net/rgermain/owujbs5y/23/)
 
 ## Install
 
