@@ -7,7 +7,7 @@ element-in-view is a js library to see if an element is visible on the user's sc
 
 ```bash
 yarn add element-in-view-rgermain
-or
+//or
 npm install element-in-view-rgermain
 ```
 
