@@ -3,14 +3,11 @@ element-in-view is a js library to see if an element is visible on the user's sc
 
 ## [Demo](https://jsfiddle.net/rgermain/owujbs5y/v21/)
 
-![demo](https://raw.githubusercontent.com/remigermain/readme-assets/master/element-in-view/demo.png)
-![demo2](https://raw.githubusercontent.com/remigermain/readme-assets/master/element-in-view/demo2.png)
-
 ## Install
 
 ```bash
 yarn add element-in-view-rgermain
-or
+//or
 npm install element-in-view-rgermain
 ```
 
