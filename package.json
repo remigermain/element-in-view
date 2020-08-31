@@ -1,6 +1,6 @@
 {
   "name": "element-in-view-rgermain",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "ElementInView is a library that allows to know if an element is displayed in the viewport of the client, it's compatible with overflow parents and offset!",
   "type": "module",
   "main": "index.js",
