@@ -29,8 +29,8 @@ function toogleClass() {
     }
 }
 
-parent.addEventListener("load", check);
-parent.addEventListener("scroll", check);
+parent.addEventListener("load", toogleClass);
+parent.addEventListener("scroll", toogleClass);
 
 document.getElementById('btn').addEventListener('click', function () {
     partial = !partial
@@ -52,7 +52,7 @@ function update() {
     offsetEl.style.left = `calc(50% + (${(offsetLeft * 2) * -1}px - ${offsetRight}px))`
     offsetEl.style.height = `calc(200px + ${offsetTop + offsetBottom}px)`
     offsetEl.style.width = `calc(200px + ${offsetLeft + offsetRight}px)`
-    check()
+    toogleClass()
 }
 
 function toogleValue(element, value) {
