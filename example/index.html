@@ -1,103 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./style.css"/>
-  <!-- <script src="../dist/index.js"></script> -->
-  <script src="https://unpkg.com/element-in-view-rgermain@1.0.0/dist/index.js"></script>
-</head>
-<body>
-  <h1>
-    <span class="blue">ElementInView</span> library <span class="yellow">JS</span>
-  </h1>
-  <label>
-    offset top
-    <input id="offsettop" type="number" value="0" />
-  </label>
-  <div class="viewport">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="../dist/index.js"></script>
+  </head>
+  <body>
+    <h1>
+      <span class="blue">ElementInView</span> library
+      <span class="yellow">JS</span>
+    </h1>
     <label>
-      offset left
-      <input id="offsetleft" type="number" value="0" />
+      offset top
+      <input id="offsettop" type="number" value="0" />
     </label>
-    <div id="parent">
-      <div class="ballon"></div>
-      <div class="offset"></div>
+    <div class="viewport">
+      <label>
+        offset left
+        <input id="offsetleft" type="number" value="0" />
+      </label>
+      <div id="parent">
+        <div class="ballon"></div>
+        <div class="offset"></div>
+      </div>
+      <label>
+        offset right
+        <input id="offsetright" type="number" value="0" />
+      </label>
     </div>
     <label>
-      offset right
-      <input id="offsetright" type="number" value="0" />
+      offset bottom
+      <input id="offsetbottom" type="number" value="0" />
     </label>
-  </div>
-  <label>
-    offset bottom
-    <input id="offsetbottom" type="number" value="0" />
-  </label>
-  <h1>
-    mode partial: <span id="mode">off</span>
-  </h1>
-  <button id="btn" class="button">
-    change mode
-  </button>
-  <div class="options-parent">
-    <div class="options">
-      <span class="blue">
-        ElementInView<span class="yellow">(</span>
-        <span class="red">element</span>
-        <span class="gray">,</span>
-        <span class="yellow">{</span>
+    <h1>mode partial: <span id="mode">off</span></h1>
+    <button id="btn" class="button">change mode</button>
+    <div class="options-parent">
+      <div class="options">
+        <span class="blue">
+          ElementInView<span class="yellow">(</span>
+          <span class="red">element</span>
+          <span class="gray">,</span>
+          <span class="yellow">{</span>
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="red">parent </span><span class="gray">: </span><span class="yellow">parentElement</span><span class="gray">,</span>
+          <span class="red">parent </span><span class="gray">: </span
+          ><span class="yellow">parentElement</span><span class="gray">,</span>
           <span id="f-partial" class="hidden">
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="red">partial </span><span class="gray">: </span><span class="yellow">true</span><span class="gray">,</span>
+            <span class="red">partial </span><span class="gray">: </span
+            ><span class="yellow">true</span><span class="gray">,</span>
           </span>
           <span id="offset-rl" class="hidden">
             <span id="offset-l">
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span class="red">offsetLeft </span><span class="gray">: </span><span class="yellow" id="f-offset-left">0</span><span class="gray">,</span>
+              <span class="red">offsetLeft </span><span class="gray">: </span
+              ><span class="yellow" id="f-offset-left">0</span
+              ><span class="gray">,</span>
             </span>
             <span id="offset-r">
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span class="red">offsetRight </span><span class="gray">: </span><span class="yellow" id="f-offset-right">0</span><span class="gray">,</span>
+              <span class="red">offsetRight </span><span class="gray">: </span
+              ><span class="yellow" id="f-offset-right">0</span
+              ><span class="gray">,</span>
             </span>
           </span>
           <span id="offset-x" class="hidden">
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="red">offsetX </span><span class="gray">: </span><span class="yellow" id="f-offset-x">0</span><span class="gray">,</span>
+            <span class="red">offsetX </span><span class="gray">: </span
+            ><span class="yellow" id="f-offset-x">0</span
+            ><span class="gray">,</span>
           </span>
           <span id="offset-tb" class="hidden">
             <span id="offset-t">
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span class="red">offsetTop </span><span class="gray">: </span><span class="yellow" id="f-offset-top">0</span><span class="gray">,</span>
+              <span class="red">offsetTop </span><span class="gray">: </span
+              ><span class="yellow" id="f-offset-top">0</span
+              ><span class="gray">,</span>
             </span>
             <span id="offset-b">
               <br />
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span class="red">offsetBottom </span><span class="gray">: </span><span class="yellow" id="f-offset-bottom">0</span><span class="gray">,</span>
+              <span class="red">offsetBottom </span><span class="gray">: </span
+              ><span class="yellow" id="f-offset-bottom">0</span
+              ><span class="gray">,</span>
             </span>
           </span>
           <span id="offset-y" class="hidden">
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="red">offsetY </span><span class="gray">: </span><span class="yellow" id="f-offset-y">0</span><span class="gray">,</span>
+            <span class="red">offsetY </span><span class="gray">: </span
+            ><span class="yellow" id="f-offset-y">0</span
+            ><span class="gray">,</span>
           </span>
           <br />
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span class="yellow">}</span>
-        <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span class="yellow">)</span>
-      </span>
+          <span class="yellow">}</span>
+          <br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="yellow">)</span>
+        </span>
+      </div>
     </div>
-  </div>
-  <script src="./script.js"></script>
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>
