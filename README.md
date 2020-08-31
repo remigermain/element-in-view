@@ -3,9 +3,11 @@ element-in-view is a js library to see if an element is visible on the user's sc
 
 ## [Demo](https://jsfiddle.net/rgermain/owujbs5y/11/)
 
-![demo](https://raw.githubusercontent.com/remigermain/readme-assets/master/element-in-view/demo.png)
-![demo2](https://raw.githubusercontent.com/remigermain/readme-assets/master/element-in-view/demo2.png)
 
+<img src="https://raw.githubusercontent.com/remigermain/readme-assets/master/element-in-view/demo.png" width="500"/>
+<img src="https://raw.githubusercontent.com/remigermain/readme-assets/master/element-in-view/demo2.png" width="500"/>
+
+ffrwfwrefre
 ## Install
 
 ```bash
