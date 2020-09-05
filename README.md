@@ -64,27 +64,27 @@ elementInView.all(element, {
 
 ### function
 #### all
-
+function: `elementInView.all()`
   all corner of element need to be visible
 
 #### partial
-
+function: `elementInView.partial()`
   only one corner of element need to be visible
 
 #### right
-
+function: `elementInView.right()`
   only right corner of element need to be visible
 
 #### left
-
+function: `elementInView.left()`
   only left corner of element need to be visible
 
 #### top
-
+function: `elementInView.top()`
   only top corner of element need to be visible
 
 #### bottom
-
+function: `elementInView.bottom()`
   only bottom corner of element need to be visible
 
 
