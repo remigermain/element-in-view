@@ -1,7 +1,7 @@
 ![header](https://raw.githubusercontent.com/remigermain/readme-assets/master/element-in-view/header.jpg)
 element-in-view is a js library to see if an element is visible on the user's screen, it is compatible for elements with a scroll bar (cs overflow).
 
-## [Demo](https://jsfiddle.net/rgermain/owujbs5y/27/)
+## [Demo](https://jsfiddle.net/rgermain/owujbs5y/29/)
 
 ## Install
 
@@ -65,26 +65,32 @@ elementInView.all(element, {
 ### function
 #### all
 function: `elementInView.all()`
+
   all corner of element need to be visible
 
 #### partial
 function: `elementInView.partial()`
+
   only one corner of element need to be visible
 
 #### right
 function: `elementInView.right()`
+
   only right corner of element need to be visible
 
 #### left
 function: `elementInView.left()`
+
   only left corner of element need to be visible
 
 #### top
 function: `elementInView.top()`
+
   only top corner of element need to be visible
 
 #### bottom
 function: `elementInView.bottom()`
+
   only bottom corner of element need to be visible
 
 
