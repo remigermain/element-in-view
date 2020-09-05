@@ -1,17 +1,26 @@
 ![header](https://raw.githubusercontent.com/remigermain/readme-assets/master/element-in-view/header.jpg)
 element-in-view is a js library to see if an element is visible on the user's screen, it is compatible for elements with a scroll bar (cs overflow).
 
-## [Demo](https://jsfiddle.net/rgermain/owujbs5y/25/)
+## [Demo](https://jsfiddle.net/rgermain/owujbs5y/27/)
 
 ## Install
 
+## [npm link](https://www.npmjs.com/package/element-in-view-rgermain)
 ```bash
 yarn add element-in-view-rgermain
 //or
 npm install element-in-view-rgermain
 ```
 
-You can find the library on `window.ElementInView`.
+You can find the library on `window.elementInView`.
+
+```
+  windows.elementInView.all(element, options)
+  // or
+  windows.elementInView.left(element, options)
+  windows.elementInView.top(element, options)
+  ... ect
+```
 
 ## Usage
 
@@ -23,8 +32,14 @@ const elementInView = require("element-in-view");
 
 const el = document.getElementById("my-element");
 
-if (elementInView(el)) {
+if (elementInView.all(el)) {
   console.log("element is visible :D");
+} else {
+  console.log("element is not visible :(");
+}
+
+if (elementInView.right(el)) {
+  console.log("right corner of element is visible :D");
 } else {
   console.log("element is not visible :(");
 }
@@ -35,8 +50,7 @@ if (elementInView(el)) {
     seconde: objects for options
 */
 const parrentElement = document.getElementById("my-parrent");
-elementInView(element, {
-  partial: true,
+elementInView.all(element, {
   parent: parrentElement,
   offsetRight: 50,
   offsetLeft: 10,
@@ -46,18 +60,37 @@ elementInView(element, {
 
 ## API
 
-### elementInView(element, [options])
+### elementInView.function(element, [options])
+
+### function
+#### all
+
+  all corner of element need to be visible
+
+#### partial
+
+  only one corner of element need to be visible
+
+#### right
+
+  only right corner of element need to be visible
+
+#### left
+
+  only left corner of element need to be visible
+
+#### top
+
+  only top corner of element need to be visible
+
+#### bottom
+
+  only bottom corner of element need to be visible
+
 
 ### options
 
 Type: `Object`
-
-#### partial
-
-Type: `boolean`<br> Default: `false`
-
-    by default there must be all the object visible for return true,
-    if you set it to true, as soon as a part of the object is visible, it will return true.
 
 #### parent
 

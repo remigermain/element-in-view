@@ -13,11 +13,19 @@
       <span class="yellow">JS</span>
     </h1>
     <label>
+      <span>
+        top corner visible :
+        <span id="top-corner" class="blue">false</span>
+      </span>
       offset top
       <input id="offsettop" type="number" value="0" />
     </label>
     <div class="viewport">
       <label>
+        <span>
+          left corner visible :
+          <span id="left-corner" class="blue">false</span>
+        </span>
         offset left
         <input id="offsetleft" type="number" value="0" />
       </label>
@@ -26,88 +34,24 @@
         <div class="offset"></div>
       </div>
       <label>
+        <span>
+          right corner visible :
+          <span id="right-corner" class="blue">false</span>
+        </span>
         offset right
         <input id="offsetright" type="number" value="0" />
       </label>
     </div>
     <label>
+      <span>
+        bottom corner visible :
+        <span id="bottom-corner" class="blue">false</span>
+      </span>
       offset bottom
       <input id="offsetbottom" type="number" value="0" />
     </label>
     <h1>mode partial: <span id="mode">off</span></h1>
     <button id="btn" class="button">change mode</button>
-    <div class="options-parent">
-      <div class="options">
-        <span class="blue">
-          ElementInView<span class="yellow">(</span>
-          <span class="red">element</span>
-          <span class="gray">,</span>
-          <span class="yellow">{</span>
-          <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="red">parent </span><span class="gray">: </span
-          ><span class="yellow">parentElement</span><span class="gray">,</span>
-          <span id="f-partial" class="hidden">
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="red">partial </span><span class="gray">: </span
-            ><span class="yellow">true</span><span class="gray">,</span>
-          </span>
-          <span id="offset-rl" class="hidden">
-            <span id="offset-l">
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span class="red">offsetLeft </span><span class="gray">: </span
-              ><span class="yellow" id="f-offset-left">0</span
-              ><span class="gray">,</span>
-            </span>
-            <span id="offset-r">
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span class="red">offsetRight </span><span class="gray">: </span
-              ><span class="yellow" id="f-offset-right">0</span
-              ><span class="gray">,</span>
-            </span>
-          </span>
-          <span id="offset-x" class="hidden">
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="red">offsetX </span><span class="gray">: </span
-            ><span class="yellow" id="f-offset-x">0</span
-            ><span class="gray">,</span>
-          </span>
-          <span id="offset-tb" class="hidden">
-            <span id="offset-t">
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span class="red">offsetTop </span><span class="gray">: </span
-              ><span class="yellow" id="f-offset-top">0</span
-              ><span class="gray">,</span>
-            </span>
-            <span id="offset-b">
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <span class="red">offsetBottom </span><span class="gray">: </span
-              ><span class="yellow" id="f-offset-bottom">0</span
-              ><span class="gray">,</span>
-            </span>
-          </span>
-          <span id="offset-y" class="hidden">
-            <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span class="red">offsetY </span><span class="gray">: </span
-            ><span class="yellow" id="f-offset-y">0</span
-            ><span class="gray">,</span>
-          </span>
-          <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="yellow">}</span>
-          <br />
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <span class="yellow">)</span>
-        </span>
-      </div>
-    </div>
     <script src="./script.js"></script>
   </body>
 </html>

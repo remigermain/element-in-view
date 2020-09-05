@@ -12,21 +12,30 @@ let offsetBottom = 0
 parent.scrollTop = (parent.scrollTopMax / 2)
 parent.scrollLeft = (parent.scrollLeftMax / 2)
 
+function axisView(el, inView) {
+    document.getElementById(el).innerText = (inView ? "true" : "false")
+}
+
 function toogleClass() {
     /* generate options */
     const options = {
-        partial: partial,
         parent: parent,
         offsetLeft: offsetLeft,
         offsetRight: offsetRight,
         offsetTop: offsetTop,
         offsetBottom: offsetBottom,
     }
-    if (window.elementInView(element, options)) {
+    if ((partial && window.elementInView.partial(element, options)) ||
+        (!partial && window.elementInView.all(element, options))) {
         element.classList.add("in-viewport");
     } else {
         element.classList.remove("in-viewport");
     }
+
+    axisView('left-corner', window.elementInView.left(element, options))
+    axisView('right-corner', window.elementInView.right(element, options))
+    axisView('top-corner', window.elementInView.top(element, options))
+    axisView('bottom-corner', window.elementInView.bottom(element, options))
 }
 
 parent.addEventListener("load", toogleClass);
@@ -47,7 +56,6 @@ document.getElementById('btn').addEventListener('click', function () {
 /* only for front here */
 
 function update() {
-    updateFront()
     offsetEl.style.top = `calc(50% + (${(offsetTop * 2) * -1}px - ${offsetBottom}px))`
     offsetEl.style.left = `calc(50% + (${(offsetLeft * 2) * -1}px - ${offsetRight}px))`
     offsetEl.style.height = `calc(200px + ${offsetTop + offsetBottom}px)`
@@ -55,49 +63,19 @@ function update() {
     toogleClass()
 }
 
-function toogleValue(element, value) {
-    if (value) {
-        element.classList.remove('hidden')
-    } else {
-        element.classList.add('hidden')
-    }
-}
-
-function updateFront() {
-    toogleValue(document.getElementById("offset-t"), offsetTop)
-    toogleValue(document.getElementById("offset-l"), offsetLeft)
-    toogleValue(document.getElementById("offset-r"), offsetRight)
-    toogleValue(document.getElementById("offset-b"), offsetBottom)
-    toogleValue(document.getElementById("offset-rl"), offsetRight != offsetLeft)
-    toogleValue(document.getElementById("offset-tb"), offsetTop != offsetBottom)
-    toogleValue(document.getElementById("offset-x"), offsetRight == offsetLeft && offsetRight != 0)
-    toogleValue(document.getElementById("offset-y"), offsetBottom == offsetTop && offsetBottom != 0)
-}
-
 document.getElementById('offsettop').addEventListener('change', function (event) {
     offsetTop = parseInt(event.target.value) || 0
-    document.getElementById("f-offset-top").innerText = offsetTop
-    document.getElementById("f-offset-y").innerText = offsetTop
     update()
 })
 document.getElementById('offsetleft').addEventListener('change', function (event) {
     offsetLeft = parseInt(event.target.value) || 0
-    document.getElementById("f-offset-left").innerText = offsetLeft
-    document.getElementById("f-offset-x").innerText = offsetLeft
-    
     update()
 })
 document.getElementById('offsetright').addEventListener('change', function (event) {
     offsetRight = parseInt(event.target.value) || 0
-    document.getElementById("f-offset-right").innerText = offsetRight
-    document.getElementById("f-offset-x").innerText = offsetRight
-   
     update()
 })
 document.getElementById('offsetbottom').addEventListener('change', function (event) {
     offsetBottom = parseInt(event.target.value) || 0
-    document.getElementById("f-offset-bottom").innerText = offsetBottom
-    document.getElementById("f-offset-y").innerText = offsetBottom
-    
     update()
 })

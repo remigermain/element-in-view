@@ -1,39 +1,78 @@
-export default function elementInView(el, options) {
-  if (typeof options === "undefined" || options === null) {
-    options = {}
-  }
-
-  return __inView(el, { partial: false, ...options})
+export function all(el, options) {
+  return _axisAll(el.getBoundingClientRect(), { partial: false, ...__getOption(options)})
 }
 
-function __inView(el, options) {
-  const elRect = el.getBoundingClientRect();
+export function partial(el, options) {
+  return _axisAll(el.getBoundingClientRect(), { partial: true, ...__getOption(options)})
+}
 
-  /* if parent is not define , get the document element */
-  const parent = (options.parent || document.documentElement).getBoundingClientRect();
+export function left(el, options) {
+  return _axisLeft(el.getBoundingClientRect(), __getOption(options))
+}
 
-  /* construct with offset add or none */
-  const target = {
-    left: elRect.left - (options.offsetX || options.offsetLeft || 0),
-    right: elRect.right + (options.offsetX || options.offsetRight || 0),
-    top: elRect.top - (options.offsetY || options.offsetTop || 0),
-    bottom: elRect.bottom + (options.offsetY || options.offsetBottom || 0)
+export function right(el, options) {
+  return _axisRight(el.getBoundingClientRect(), __getOption(options))
+}
+
+export function top(el, options) {
+  return _axisTop(el.getBoundingClientRect(), __getOption(options))
+}
+
+export function bottom(el, options) {
+  return _axisBottom(el.getBoundingClientRect(), __getOption(options))
+}
+
+/*
+  utils
+*/
+
+function __getParent(options) {
+  return (options.parent || document.documentElement).getBoundingClientRect()
+}
+
+function __getOption(options) {
+  if (typeof options === "undefined" || options === null) {
+    return {parent: __getParent(options)}
+  } else {
+    return {...options, parent: __getParent(options)}
   }
+}
 
-  /* for x axis */
-  const AxisRight = (parent.left <= target.right && parent.right >= target.right)
-  const AxisLeft = (parent.left <= target.left && parent.right >= target.left)
 
-  /* for y axis */
-  const AxisBottom  = (parent.top <= target.bottom && parent.bottom >= target.bottom)
-  const AxisTop  = (parent.top <= target.top && parent.bottom >= target.top)
+/* left corner */
+function _axisLeft(elRect, options) {
+  const pos = (elRect.left - (options.offsetX || options.offsetLeft || 0))
+  return (options.parent.left <= pos && options.parent.right >= pos)
+}
+
+/* right corner */
+function _axisRight(elRect, options) {
+  const pos = (elRect.right + (options.offsetX || options.offsetRight || 0))
+  return (options.parent.left <= pos && options.parent.right >= pos)
+}
+
+/* top corner */
+function _axisTop(elRect, options) {
+  const pos = (elRect.top - (options.offsetY || options.offsetTop || 0))
+  return (options.parent.top <= pos && options.parent.bottom >= pos)
+}
+
+/* bottom corner */
+function _axisBottom(elRect, options) {
+  const pos = (elRect.bottom + (options.offsetY || options.offsetBottom || 0))
+  return (options.parent.top <= pos && options.parent.bottom >= pos)
+}
+
+
+
+function _axisAll(el, options) {
 
   /* if partial need to
   ** top or bottom and right and left
   */
   if (options.partial) {
-    return (AxisTop || AxisBottom) && (AxisRight || AxisLeft)
+    return (_axisTop(el, options) || _axisBottom(el, options)) && (_axisRight(el, options) || _axisLeft(el, options))
   }
   /* else need to all point in view */
-  return AxisRight && AxisLeft && AxisTop && AxisBottom
+  return _axisRight(el, options) && _axisLeft(el, options) && _axisTop(el, options) && _axisBottom(el, options)
 }
