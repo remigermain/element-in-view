@@ -15,10 +15,10 @@ npm install element-in-view-rgermain
 You can find the library on `window.elementInView`.
 
 ```
-  windows.elementInView.all(element, options)
+windows.elementInView.all(element, options)
   // or
-  windows.elementInView.left(element, options)
-  windows.elementInView.top(element, options)
+windows.elementInView.left(element, options)
+windows.elementInView.top(element, options)
   ... ect
 ```
 
