@@ -4,6 +4,7 @@
   "description": "ElementInView is a library that allows to know if an element is displayed in the viewport of the client, it's compatible with overflow parents and offset!",
   "type": "module",
   "main": "index.js",
+  "module": "src/index.js",
   "exports": {
     "require": "./src/index.js",
     "import": "./dist/index.js"
