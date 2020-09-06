@@ -1,78 +1,74 @@
-export function all(el, options) {
-  return _axisAll(el.getBoundingClientRect(), { partial: false, ...__getOption(options)})
+import {inAxisRight, inAxisLeft, inAxisTop, inAxisBottom, inAllAxis} from "./inAxis"
+
+/*
+  el: element need to check if visible in viewport
+  options: Object of all options available ( like offset, recursive, partial)
+  callBack: function, only set when recursive = true
+            is the function to find if axis ( y, x, left, top ...ect) is visible
+*/
+function checkInView(el, options, callback) {
+  /* generate options */
+  const opt = {
+    parent: document.documentElement, // default document element
+    partial: false,
+    recursive: false,
+    offsetLeft: 0,
+    offsetRight: 0,
+    offsetTop: 0,
+    offsetBottom: 0,
+    ...options
+  }
+
+  /* assign parent */
+  if (options.recursive) {
+      opt.parent = el.parentElement
+  }
+
+  /* generate rect */
+  opt.parent = opt.parent.getBoundingClientRect()
+  const elRect = el.getBoundingClientRect()
+
+  /* check visible */
+  const visible = callback(elRect, opt)
+  if (!options.recursive || !visible) {
+    return visible
+  }
+
+  /* iter for all parents nodes */
+  let current = opt.parent;
+  while(current != null) {
+    // asing parent
+    opt.parent = current.getBoundingClientRect()
+    // stop when element not visible in parent
+    if (!callback(elRect, opt)) {
+      return false
+    }
+    // assign element by parent
+    current = current.parentElement
+  }
+  
+  // if current == null
+  // current is over documentElement so element is visible
+  return true
 }
 
-export function partial(el, options) {
-  return _axisAll(el.getBoundingClientRect(), { partial: true, ...__getOption(options)})
+
+export function all(el, options) {
+  return checkInView(el, options, inAllAxis)
 }
 
 export function left(el, options) {
-  return _axisLeft(el.getBoundingClientRect(), __getOption(options))
+  return checkInView(el, options, inAxisLeft)
 }
 
 export function right(el, options) {
-  return _axisRight(el.getBoundingClientRect(), __getOption(options))
+  return checkInView(el, options, inAxisRight)
 }
 
 export function top(el, options) {
-  return _axisTop(el.getBoundingClientRect(), __getOption(options))
+  return checkInView(el, options, inAxisTop)
 }
 
 export function bottom(el, options) {
-  return _axisBottom(el.getBoundingClientRect(), __getOption(options))
-}
-
-/*
-  utils
-*/
-
-function __getParent(options) {
-  return (options.parent || document.documentElement).getBoundingClientRect()
-}
-
-function __getOption(options) {
-  if (typeof options === "undefined" || options === null) {
-    return {parent: __getParent(options)}
-  } else {
-    return {...options, parent: __getParent(options)}
-  }
-}
-
-
-/* left corner */
-function _axisLeft(elRect, options) {
-  const pos = (elRect.left - (options.offsetX || options.offsetLeft || 0))
-  return (options.parent.left <= pos && options.parent.right >= pos)
-}
-
-/* right corner */
-function _axisRight(elRect, options) {
-  const pos = (elRect.right + (options.offsetX || options.offsetRight || 0))
-  return (options.parent.left <= pos && options.parent.right >= pos)
-}
-
-/* top corner */
-function _axisTop(elRect, options) {
-  const pos = (elRect.top - (options.offsetY || options.offsetTop || 0))
-  return (options.parent.top <= pos && options.parent.bottom >= pos)
-}
-
-/* bottom corner */
-function _axisBottom(elRect, options) {
-  const pos = (elRect.bottom + (options.offsetY || options.offsetBottom || 0))
-  return (options.parent.top <= pos && options.parent.bottom >= pos)
-}
-
-
-
-function _axisAll(el, options) {
-
-  /* if partial need to
-  ** top or bottom and right and left
-  */
-  if (options.partial) {
-    return (_axisTop(el, options) || _axisBottom(el, options)) && (_axisRight(el, options) || _axisLeft(el, options))
-  }
-  /* else need to all point in view */
-  return _axisRight(el, options) && _axisLeft(el, options) && _axisTop(el, options) && _axisBottom(el, options)
+  return checkInView(el, options, inAxisBottom)
 }

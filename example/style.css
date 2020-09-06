@@ -23,11 +23,23 @@ label {
     color: rgb(47, 55, 158);
 }
 
-#parent {
+.parent {
+    padding: 80px;
     position: relative;
     overflow-x: scroll;
     overflow-y: scroll;
     width: 400px;
+    height: 400px;
+    background-color: white;
+    white-space: nowrap;
+    background-color: rgba(0, 0, 0, 0.123);
+}
+
+.parent2 {
+    position: relative;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    width: 1200px;
     height: 400px;
     background-color: white;
     white-space: nowrap;
@@ -50,7 +62,7 @@ label {
     display: inline-block;
     width: 200px;
     height: 200px;
-    margin: 400px 450px;
+    margin: 550px 550px;
     background-color: #2B6CB0;
     transition: all .5s;
 }
@@ -67,7 +79,8 @@ label {
     transform: translate(100%, 100%);
     border: 2px dashed black;
     width: 200px;
-    margin-left: 50px;
+    margin-left: 150px;
+    margin-top: 150px;
     height: 200px;
 }
 

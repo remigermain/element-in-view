@@ -19,14 +19,15 @@ function axisView(el, inView) {
 function toogleClass() {
     /* generate options */
     const options = {
-        parent: parent,
+        //parent: parent,
+        recursive: true,
+        partial: partial,
         offsetLeft: offsetLeft,
         offsetRight: offsetRight,
         offsetTop: offsetTop,
         offsetBottom: offsetBottom,
     }
-    if ((partial && window.elementInView.partial(element, options)) ||
-        (!partial && window.elementInView.all(element, options))) {
+    if (window.elementInView.all(element, options)) {
         element.classList.add("in-viewport");
     } else {
         element.classList.remove("in-viewport");
@@ -41,14 +42,13 @@ function toogleClass() {
 parent.addEventListener("load", toogleClass);
 parent.addEventListener("scroll", toogleClass);
 
+
+document.getElementsByClassName('parent2')[0].addEventListener("load", toogleClass);
+document.getElementsByClassName('parent2')[0].addEventListener("scroll", toogleClass);
+
 document.getElementById('btn').addEventListener('click', function () {
     partial = !partial
     document.getElementById('mode').innerText = (partial ? "on" : "off")
-    if (partial) {
-        document.getElementById('f-partial').classList.remove('hidden')
-    } else {
-        document.getElementById('f-partial').classList.add('hidden')
-    }
     toogleClass()
 })
 
