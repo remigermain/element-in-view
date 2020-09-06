@@ -24,8 +24,8 @@ function axisView(el, inView) {
 
 function moveDash() {
     const rect = element.getBoundingClientRect()
-    offsetEl.style.top = `calc(${rect.top}px - ${offsetTop}px)`
-    offsetEl.style.left = `calc(${rect.left}px - ${offsetLeft}px)`
+    offsetEl.style.top = `calc(${rect.top}px - ${offsetTop}px - 2px)`
+    offsetEl.style.left = `calc(${rect.left}px - ${offsetLeft}px - 2px)`
     offsetEl.style.height = `calc(${rect.height}px + ${offsetTop + offsetBottom}px)`
     offsetEl.style.width = `calc(${rect.width}px  + ${offsetLeft + offsetRight}px)`
 }
@@ -57,6 +57,9 @@ parent.addEventListener("load", toogleClass);
 parent.addEventListener("scroll", toogleClass);
 subParent.addEventListener("load", toogleClass);
 subParent.addEventListener("scroll", toogleClass);
+window.addEventListener("resize", toogleClass);
+window.addEventListener("resize", toogleClass);
+
 
 document.getElementById('partial').addEventListener('click', function () {
     partial = !partial

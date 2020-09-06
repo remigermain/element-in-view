@@ -1,7 +1,7 @@
 ![header](https://raw.githubusercontent.com/remigermain/readme-assets/master/element-in-view/header.jpg)
 element-in-view is a js library that gives you information if an element is visible or not, it's compatible with elements with a css overflow, and a lot of options !).
 
-## [Demo](https://jsfiddle.net/rgermain/owujbs5y/39/)
+## [Demo](https://jsfiddle.net/rgermain/owujbs5y/40/)
 
 ## Install [npm link](https://www.npmjs.com/package/element-in-view-rgermain)
 ```bash
