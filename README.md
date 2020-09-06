@@ -1,7 +1,7 @@
 ![header](https://raw.githubusercontent.com/remigermain/readme-assets/master/element-in-view/header.jpg)
-element-in-view is a js library to see if an element is visible on the user's screen, it is compatible for elements with a scroll bar (cs overflow).
+element-in-view is a js library that gives you information if an element is visible or not, it's compatible with elements with a css overflow, and a lot of options !).
 
-## [Demo](https://jsfiddle.net/rgermain/owujbs5y/29/)
+## [Demo](https://jsfiddle.net/rgermain/owujbs5y/34/)
 
 ## Install
 
@@ -68,10 +68,6 @@ function: `elementInView.all()`
 
   all corner of element need to be visible
 
-#### partial
-function: `elementInView.partial()`
-
-  only one corner of element need to be visible
 
 #### right
 function: `elementInView.right()`
@@ -98,11 +94,17 @@ function: `elementInView.bottom()`
 
 Type: `Object`
 
+### partial
+
+Type: `Boolean` <br> Default: `false`
+
+     the element must be partly visible 
+
 #### parent
 
-Type: `HtmlElement`<br> Default: `document.documentElement`
+Type: `HtmlElement`<br> Default: `null`
 
-    the parent element
+    if you define a parent, the element must be in visible only in relation to this one, that means that if this parent element is not visible (with an overflow for example) but that the element is well in the dimensions of this one, it will return true to you 
 
 #### offsetX/offsetY
 

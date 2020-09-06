@@ -9,19 +9,21 @@ import {inAxisRight, inAxisLeft, inAxisTop, inAxisBottom, inAllAxis} from "./inA
 function checkInView(el, options, callback) {
   /* generate options */
   const opt = {
-    parent: document.documentElement, // default document element
     partial: false,
-    recursive: false,
+    parent: null,
     offsetLeft: 0,
     offsetRight: 0,
     offsetTop: 0,
     offsetBottom: 0,
     ...options
   }
-
+  
   /* assign parent */
-  if (options.recursive) {
+  if (!opt.parent) {
+      opt.recursive = true
       opt.parent = el.parentElement
+  } else {
+    opt.recursive = false
   }
 
   /* generate rect */
@@ -30,12 +32,12 @@ function checkInView(el, options, callback) {
 
   /* check visible */
   const visible = callback(elRect, opt)
-  if (!options.recursive || !visible) {
+  if (!opt.recursive || !visible) {
     return visible
   }
 
   /* iter for all parents nodes */
-  let current = opt.parent;
+  let current = el.parentElement;
   while(current != null) {
     // asing parent
     opt.parent = current.getBoundingClientRect()

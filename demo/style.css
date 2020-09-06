@@ -1,0 +1,203 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.viewport {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.sub-viewport {
+    text-align: center;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+    color: rgb(47, 55, 158);
+}
+
+.parent {
+    padding: 80px;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    white-space: nowrap;
+    background-color: rgba(0, 0, 0, 0.123);
+}
+
+.englob {
+    border-top-width: .5em;
+    border-color: #2B6CB0;
+    border-radius: 20px;
+    border-style: solid;
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    width: 400px;
+    margin-left: calc(400px - (.5em / 2) + 2px);
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 700;
+    font-style: italic;
+    color: rgb(85, 85, 85);
+}
+
+.parent2 {
+    overflow-x: scroll;
+    overflow-y: scroll;
+    width: 400px;
+    height: 400px;
+    margin-left: 400px;
+    background-color: white;
+    white-space: nowrap;
+    background-color: rgba(0, 0, 0, 0.123);
+}
+
+#mode {
+    color: rgb(47, 55, 158);
+}
+
+.button {
+    transition: background-color .2s;
+    cursor: pointer;
+    padding: .4em .7em;
+    background-color: rgb(20, 55, 94);
+    color: white;
+    border-radius: 5px;
+    border: none;
+    margin: .1em;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 1.3em;
+}
+.button:hover {
+    background-color: rgb(28, 78, 136);
+}
+
+.ballon {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    margin: 550px 550px;
+    background-color: #2B6CB0;
+    transition: all .5s;
+}
+
+.ballon.in-viewport {
+    background-color: #9B2C2C;
+    border-radius: 50%;
+}
+
+.offset {
+    width: 1200px;
+    height: 400px;
+}
+
+.ballon-offset {
+    position: absolute;
+    border: 2px dashed black;
+    width: 200px;
+    height: 200px;
+    top: 0;
+    left: 0;
+    background-color: rgba(116, 116, 116, .4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: capitalize;
+}
+
+.ballon-detail {
+    display: grid;
+    text-align: center;
+    font-weight: 700;
+    grid-template-columns: 100px 100px;
+    grid-template-rows: 30px repeat(4, auto);
+}
+.ballon-here {
+    font-weight: 700;
+}
+
+.border-top {
+    border-top-width: .5em;
+    border-color: #2B6CB0;
+    border-radius: 20px;
+    border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+.italic {
+    font-style: italic;
+}
+.tools {
+    display: grid;
+    grid-template-columns: 150px 200px;
+    text-align: center;
+    gap: 20px 0;
+}
+
+.grid-full {
+    grid-column: span 2;
+}
+
+.title-info {
+    text-transform: capitalize;
+    font-size: 1.5em;
+    font-weight: 600;
+    font-style: italic;
+    color: rgb(85, 85, 85);
+}
+
+.parent-name {
+    text-transform: capitalize;
+}
+.parent-name2 {
+    font-style: italic;
+    letter-spacing: -.4px;
+}
+.mode-title {
+    font-weight: 600;
+    font-size: 1.2em;
+    text-transform: capitalize;
+    color: rgb(46, 39, 110);
+}
+
+.options {
+    text-transform: capitalize;
+    font-size: 1.1em;
+    font-weight: 600;
+    font-style: italic;
+    color: rgb(85, 85, 85);
+}
+
+.hidden {
+    display: none;
+}
+
+.blue {
+    color: #2B6CB0;
+}
+.red {
+    color: #9B2C2C;
+}
+.gray {
+    color: #4A5568;
+}
+.yellow {
+    color: #D69E2E;
+}

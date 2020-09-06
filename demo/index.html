@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="../dist/index.js"></script>
+  </head>
+  <body>
+    <h1>
+      <span class="blue">ElementInView</span> library
+      <span class="yellow">JS</span>
+    </h1>
+    <div class="viewport">
+      <div class="sub-viewport">
+        <h3 class="gray italic">scroll through the 2 boxes , and see what it looks like!</h3>
+        <div id="parent" class="parent">
+          <div class="offset"></div>
+          <div class="englob">&#8675;this is parent &#8675;</div>
+          <div id="parent2" class="parent2">
+            <div class="ballon"></div>
+            <div class="ballon-offset">
+              <span class="ballon-here">balloon is here</span>
+              <div class="ballon-detail">
+                <span>corner</span>
+                <span>visible </span>
+                <span>left</span>
+                <span id="left-corner">false</span>
+                <span>right</span>
+                <span id="right-corner">false</span>
+                <span>bottom</span>
+                <span id="bottom-corner">false</span>
+                <span>top</span>
+                <span id="top-corner">false</span>
+              </div>
+            </div>
+          </div>
+          <div class="offset"></div>
+        </div>
+      </div>
+      <div class="tools">
+        <span class="grid-full title-info border-top">
+          options
+        </span>
+        <span class="grid-full">
+          <span>
+            Actual parent is:
+          </span>
+          <br/>
+          <span id="parent-name" class="parent-name yellow">window</span>
+          <br/>
+          <span id="parent-name2" class="parent-name2 gray">(so is not set in options)</span>
+        </span>
+        <span class="mode-title">partial</span>
+        <span class="mode-title">based on parent</span>
+        <button id="partial" class="button">off</button>
+        <button id="nested" class="button">off</button>
+        <label>
+          offset top
+          <input id="offsettop" type="number" value="0" />
+        </label>
+        <label>
+          offset left
+          <input id="offsetleft" type="number" value="0" />
+        </label>
+        <label>
+          offset right
+          <input id="offsetright" type="number" value="0" />
+        </label>
+        <label>
+          offset bottom
+          <input id="offsetbottom" type="number" value="0" />
+        </label>
+        <span class="grid-full title-info border-top">
+          information
+        </span>
+        <span class="grid-full">
+          <span class="options">
+            options: partial
+          </span>
+          <br />
+          the element must be partly visible
+        </span>
+        <span class="grid-full">
+          <span class="options">
+            options: parent
+          </span>
+          <br />
+          if you define a parent, the element must be in visible only in relation 
+          to this one, that means that if this parent element is not visible 
+          (with an overflow for example) but that the element is well in the 
+          dimensions of this one, it will return true to you
+        </span>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
