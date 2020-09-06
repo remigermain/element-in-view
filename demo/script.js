@@ -18,15 +18,14 @@ subParent.scrollTop = (subParent.scrollTopMax / 2)
 subParent.scrollLeft = (subParent.scrollLeftMax / 2)
 moveDash()
 
-
 function axisView(el, inView) {
     document.getElementById(el).innerText = (inView ? "yes" : "no")
 }
 
 function moveDash() {
     const rect = element.getBoundingClientRect()
-    offsetEl.style.top = `calc(${rect.top}px + (${(offsetTop * 2) * -1}px - ${offsetBottom}px) - 2px)`
-    offsetEl.style.left = `calc(${rect.left}px + (${(offsetLeft * 2) * -1}px - ${offsetRight}px) - 2px)`
+    offsetEl.style.top = `calc(${rect.top}px - ${offsetTop}px)`
+    offsetEl.style.left = `calc(${rect.left}px - ${offsetLeft}px)`
     offsetEl.style.height = `calc(${rect.height}px + ${offsetTop + offsetBottom}px)`
     offsetEl.style.width = `calc(${rect.width}px  + ${offsetLeft + offsetRight}px)`
 }
