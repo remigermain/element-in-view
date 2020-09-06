@@ -3,16 +3,17 @@ element-in-view is a js library that gives you information if an element is visi
 
 ## [Demo](https://jsfiddle.net/rgermain/owujbs5y/39/)
 
-## Install
-
-## [npm link](https://www.npmjs.com/package/element-in-view-rgermain)
+## Install [npm link](https://www.npmjs.com/package/element-in-view-rgermain)
 ```bash
 yarn add element-in-view-rgermain
 //or
 npm install element-in-view-rgermain
 ```
-
-You can find the library on `window.elementInView`.
+## Cdn
+```
+ <script src="https://unpkg.com/element-in-view-rgermain@1.4.0/dist/index.js">
+```
+If you use with cdn, you can find the library on `window.elementInView`.
 
 ```js
 windows.elementInView.all(element, options)
@@ -41,7 +42,7 @@ if (elementInView.all(el)) {
 if (elementInView.right(el)) {
   console.log("right corner of element is visible :D");
 } else {
-  console.log("element is not visible :(");
+  console.log("right corner of element is not visible :(");
 }
 
 /*
@@ -104,7 +105,11 @@ Type: `Boolean` <br> Default: `false`
 
 Type: `HtmlElement`<br> Default: `null`
 
-    if you define a parent, the element must be in visible only in relation to this one, that means that if this parent element is not visible (with an overflow for example) but that the element is well in the dimensions of this one, it will return true to you 
+    if you define a parent, the element must be in visible only
+    in relation to this one, that means that if this parent
+    element is not visible (with an overflow for example)
+    but that the element is well in the dimensions of this one,
+    it will return true to you 
 
 #### offsetX/offsetY
 
